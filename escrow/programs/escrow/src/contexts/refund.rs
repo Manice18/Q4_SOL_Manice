@@ -53,8 +53,8 @@ impl<'info> Refund<'info> {
         let transfer_account = TransferChecked {
             from: self.vault.to_account_info(),
             mint: self.mint_a.to_account_info(),
-            to: self.maker.to_account_info(),
-            authority: self.maker.to_account_info(),
+            to: self.maker_ata_a.to_account_info(),
+            authority: self.escrow.to_account_info(),
         };
 
         let transfer_cpi_ctx = CpiContext::new_with_signer(
